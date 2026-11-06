@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Shubham Pandey — Developer Portfolio
 
 > **Software Engineer & Intelligent Software Engineer**  
@@ -140,3 +141,6 @@ This repository includes a ready-to-use CI/CD workflow at [`.github/workflows/de
 ## 📄 License & Credits
 Designed and Developed by **Shubham Pandey** © 2026.  
 Distributed under the [MIT License](https://opensource.org/licenses/MIT).
+=======
+# Portfolio
+>>>>>>> a9a16fb0169dc889c32197b4b755df92d57e3022
