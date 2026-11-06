@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Shubham Pandey — Developer Portfolio
 
 > **Software Engineer & Intelligent Software Engineer**  
@@ -117,7 +116,7 @@ npm run preview
 ### Option 1: GitHub Pages via GitHub Actions (Automated & Recommended)
 This repository includes a ready-to-use CI/CD workflow at [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
 
-1. Push your repository to GitHub: `git push -u origin main`.
+1. Push your repository to GitHub: `git push origin main`.
 2. On GitHub, navigate to **Settings** &rarr; **Pages**.
 3. Under **Build and deployment** &rarr; **Source**, select **GitHub Actions**.
 4. Every push to the `main` branch will automatically run tests, verify TypeScript types, bundle assets with relative paths (`base: './'`), and publish to GitHub Pages.
@@ -141,6 +140,3 @@ This repository includes a ready-to-use CI/CD workflow at [`.github/workflows/de
 ## 📄 License & Credits
 Designed and Developed by **Shubham Pandey** © 2026.  
 Distributed under the [MIT License](https://opensource.org/licenses/MIT).
-=======
-# Portfolio
->>>>>>> a9a16fb0169dc889c32197b4b755df92d57e3022
