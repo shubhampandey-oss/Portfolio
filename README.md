@@ -6,13 +6,12 @@
 [![Vite](https://img.shields.io/badge/Vite-8.x-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
 [![React](https://img.shields.io/badge/React-19.x-61DAFB?logo=react&logoColor=black)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Strict-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![GitHub Actions](https://img.shields.io/badge/CI%2FCD-GitHub_Pages-2088FF?logo=github-actions&logoColor=white)](https://github.com/shubhampandey-oss/portfolio/actions)
+[![Render](https://img.shields.io/badge/Deploy-Render-46E3B7?logo=render&logoColor=white)](https://render.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
 
 ## 🚀 Live Demo & Profiles
-- **Live Portfolio**: [https://shubhampandey-oss.github.io/portfolio/](https://shubhampandey-oss.github.io/portfolio/)
 - **GitHub**: [https://github.com/shubhampandey-oss](https://github.com/shubhampandey-oss)
 - **LinkedIn**: [https://linkedin.com/in/shubham-pandey-4078b934a](https://linkedin.com/in/shubham-pandey-4078b934a)
 - **Email**: [shubham2292pandey@gmail.com](mailto:shubham2292pandey@gmail.com)
@@ -24,7 +23,7 @@
 - **Languages**: TypeScript (Strict Mode), HTML5, Modern CSS3
 - **Component Architecture**: React 19, Lucide React Icons
 - **Typography**: Fontshare (Clash Display, Satoshi) & Google Fonts (Cormorant Garamond, JetBrains Mono)
-- **CI/CD & Deployment**: GitHub Actions & GitHub Pages / Vercel / Netlify
+- **Deployment**: Render (Static Site)
 
 ---
 
@@ -32,9 +31,6 @@
 
 ```
 portfolio/
-├── .github/
-│   └── workflows/
-│       └── deploy.yml            # Automated CI/CD pipeline for GitHub Pages
 ├── public/                       # Static public assets (unbundled)
 │   ├── images/
 │   │   └── .gitkeep              # Project showcase graphics & thumbnails
@@ -61,8 +57,9 @@ portfolio/
 ├── index.html                    # Semantic HTML5 entry point
 ├── jsconfig.json                 # Tooling configuration for JS tooling
 ├── package.json                  # Project manifest, dependencies & scripts
+├── render.yaml                   # Render Blueprint configuration with security headers
 ├── tsconfig.json                 # Strict TypeScript compiler configuration
-├── vite.config.ts                # Production Vite bundler & relative path configuration
+├── vite.config.ts                # Production Vite bundler configuration
 └── README.md                     # Project documentation & operational guide
 ```
 
@@ -111,28 +108,34 @@ npm run preview
 
 ---
 
-## 🌐 Deployment Guide
+## 🌐 Deploying to Render
 
-### Option 1: GitHub Pages via GitHub Actions (Automated & Recommended)
-This repository includes a ready-to-use CI/CD workflow at [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
+This repository is optimized for [Render](https://render.com/) Static Sites and includes a [`render.yaml`](./render.yaml) blueprint with security headers.
 
-1. Push your repository to GitHub: `git push origin main`.
-2. On GitHub, navigate to **Settings** &rarr; **Pages**.
-3. Under **Build and deployment** &rarr; **Source**, select **GitHub Actions**.
-4. Every push to the `main` branch will automatically run tests, verify TypeScript types, bundle assets with relative paths (`base: './'`), and publish to GitHub Pages.
+### Option A: Manual Static Site Setup (Simple)
+1. Push your repository to your GitHub account (`shubhampandey-oss/portfolio`).
+2. Log in to your [Render Dashboard](https://dashboard.render.com/).
+3. Click **New +** &rarr; **Static Site**.
+4. Connect your GitHub repository (`portfolio`).
+5. Configure the deployment settings:
+   - **Name**: `shubham-pandey-portfolio`
+   - **Branch**: `main`
+   - **Build Command**: `npm install && npm run build`
+   - **Publish Directory**: `dist`
+6. Click **Create Static Site**. Render will automatically build and publish your portfolio with free SSL!
 
-### Option 2: Vercel / Netlify
-- **Build Command**: `npm run build`
-- **Output Directory**: `dist`
-- **Node Version**: 18+ or 20+
+### Option B: Blueprint Deployment (One-Click)
+1. In the Render Dashboard, click **New +** &rarr; **Blueprint**.
+2. Connect your repository. Render will automatically read `render.yaml` and configure the build command, publish directory, rewrite rules, and security headers automatically.
+3. Click **Apply**.
 
 ---
 
 ## 🔒 Security & Best Practices
 - ✅ **Zero Secrets Committed**: All environment files (`.env*`, `.local`) and sensitive credentials are encrypted/excluded via `.gitignore`.
 - ✅ **Sanitized External Links**: All outbound links include `rel="noopener noreferrer"` to eliminate reverse tab-nabbing attacks.
+- ✅ **Security Headers**: `render.yaml` enforces `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, and `Referrer-Policy: strict-origin-when-cross-origin`.
 - ✅ **Strict Type Safety**: Verified with `tsc --noEmit` under strict TypeScript mode with 0 errors.
-- ✅ **Relative Path Resilience**: Configured `base: './'` in `vite.config.ts` prevents broken asset paths across subpath deployments.
 - ✅ **Isolated Build Output**: Build artifacts (`dist/`) and dependency folders (`node_modules/`) are strictly kept out of version control.
 
 ---
